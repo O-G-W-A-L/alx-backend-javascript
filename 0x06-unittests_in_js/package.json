@@ -1,0 +1,23 @@
+{
+    "name": "unittests_in_js",
+    "version": "1.0.0",
+    "private": "True",
+    "license": "MIT",
+    "description": "A project for learning the basics of unittests in Node.js.",
+    "scripts": {
+        "lint": "./node_modules/.bin/eslint",
+        "lint-all": "./node_modules/.bin/eslint [0-9]*.js",
+        "lint-fix-all": "./node_modules/.bin/eslint --fix [0-9]*.js",
+        "test": "./node_modules/mocha/bin/mocha"
+    },
+    "author": "OGWAL JONATHAN AMOS <ogwalja04@gmail.com>",
+    "dependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.4.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-jest": "^22.17.0",
+        "mocha": "^8.2.1",
+        "sinon": "^9.2.3"
+    }
+}
