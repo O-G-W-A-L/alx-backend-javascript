@@ -1,34 +1,19 @@
-const SUM = 'SUM';
-const SUBTRACT = 'SUBTRACT';
-const DIVIDE = 'DIVIDE';
+function calculateNumber(type, a, b) {
+  const n1 = Math.round(a);
+  const n2 = Math.round(b);
 
-function isNegZero(n) {
-  n = Number(n);
-  return n === 0 && 1 / n === -Infinity;
+  if (type === 'SUBTRACT') {
+    return n1 - n2;
+  }
+
+  if (type === 'DIVIDE') {
+    if (n2 === 0) {
+      return 'Error';
+    }
+    return n1 / n2;
+  }
+
+  return n1 + n2;
 }
 
-module.exports = function calculateNumber(type, a, b = 0) {
-  let aNum = Number(a);
-  let bNum = Number(b);
-
-  if (Number.isNaN(aNum) || Number.isNaN(bNum))
-    throw TypeError('Parameters must be numbers or able to coerce to number');
-
-  aNum = Math.round(aNum);
-  bNum = Math.round(bNum);
-
-  switch (type) {
-    case SUM:
-      return aNum + bNum;
-    case SUBTRACT:
-      return aNum - bNum;
-    case DIVIDE:
-      if (bNum === 0) return 'ERROR';
-      const quotient = aNum / bNum;
-      return isNegZero(quotient) ? 0 : quotient;
-    default:
-      throw Error(
-        'Invalid operation type. Valid types are "SUM", "SUBTRACT", and "DIVIDE".'
-      );
-  }
-};
+module.exports = calculateNumber;
